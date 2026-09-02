@@ -1,2 +1,2 @@
-# EstadisiticaInferencial2026A
+# EstadisticaInferencial2026A
 ReadMe

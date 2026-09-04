@@ -1,6 +1,19 @@
-import statsmodels.api as sm
-x_constante = sm.add_constant(x)
-modelo = sm.OLS(y, x_constante).fit()
-y_calculada = modelo.predict(x_constante)
+from scipy.stats import shapiro
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-modelo.params
+residuos = modelo_lineal.resid
+
+# Prueba de Shapiro-Wilk
+stat, valor_p_sh = shapiro(residuos)
+print(f"valor-p (Shapiro) = {valor_p_sh}")
+
+# Visualización: Q-Q plot
+sm.qqplot(residuos, line='s')
+plt.title("Q-Q plot de residuos")
+plt.show()
+
+# Histograma
+sns.histplot(residuos, kde=True)
+plt.title("Histograma de residuos")
+plt.show()
